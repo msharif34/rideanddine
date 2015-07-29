@@ -12,33 +12,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <% if logged_in? %>
-        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-        <li><%= link_to @current_user.name, current_user %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
-  <div class="container">
-   <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <!-- <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+
+      <%= link_to "logo goes here", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Home", root_path %></li>
+          <% if logged_in? %>
+          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          <li><%= link_to @current_user.name, current_user %></li>
+        </ul>
+      </li>
+      <% else %>
+      <li><%= link_to "Log in", login_path %></li>
       <% end %>
-    <div class="row">
-    </div>
-    <div class="row">
-      <%= yield %>
-  </div>
+    </ul>
+  </nav> -->
+</div>
+</header>
+ <% flash.each do |message_type, message| %>
+ <div class="alert alert-<%= message_type %>"><%= message %></div>
+ <% end %>
+ <div class="row">
+ </div>
+ <div class="row">
+  <%= yield %>
 </div>
 </body>
 </html>

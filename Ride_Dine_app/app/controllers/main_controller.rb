@@ -2,7 +2,7 @@ class MainController < ApplicationController
  
   def index
 
-	google = GooglePlaces::Client.new('AIzaSyCDK7Ir3cMrH1SfraqLDQTfNLVYfWBAaYY')
+	# google = GooglePlaces::Client.new('AIzaSyCDK7Ir3cMrH1SfraqLDQTfNLVYfWBAaYY')
 			# # Get input from user 
 			# @restaurants = google.spots_by_query(params[:destination])
 			#grab address from user input
@@ -10,11 +10,17 @@ class MainController < ApplicationController
 			# long = @restaurants[0].lng
 			# name = @restaurants[0].name
 			# address = @restaurants[0].formatted_address
-			@yelp = Yelp.client.search('cafe torino')
+			# @yelp = Yelp.client.search('cafe torino')
 
 	      	 
 
 
+
+
+  end
+
+  def index2
+  	
   end
   
   def signup

@@ -1,5 +1,3 @@
-<%= include_gon %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <div class="container">
 	<div class="row">
 		<aside class="col-md-4">
@@ -10,51 +8,19 @@
 				</h1>
 			</section>
 		</aside>
-	</div>
-	<section>
-
-		<div class="row">
-		<div class="col-md-4">
-		</div>
-			<div class="form col-md-4">
-				<h1>Location</h1>
-				<%= bootstrap_form_tag action: location_path, method: "get" do |f|%>
-				<%= f.text_field(:address, label: 'Current Location') %>
-				<%= f.text_field(:destination, label: 'Destination') %>
-				<%= f.submit("Search") %>
-				<% end %>
-			
-			</div>  
-		</div>
-	</section>
-
 	<div class="row">
-		<div class="uber col-md-4">
-			<% if @ride %>
-			<%= image_tag("uberX.jpg", :size => "360x200")%>
-			<div class="well text-center">
-				<%= "Service:" %> <%= @ride.display_name %> <%="-" %>
-				<%= "Closest Driver: " %><%= Time.at(@closest_driver.to_i).utc.strftime("%H:%M:%S")  %> 
-			</div>
+		<div class="col-md-12">
+			<% if @past_searches %>
+			<% @past_searches.each do |search| %>
+			<%= image_tag(search.image.gsub!("ms.jpg","l.jpg"), :size => "200x200") %>
+				<%= image_tag(search.rating ) %>
+				<%= search.address %>
+				<% end %>
+			<% end %>
 		</div>
-		<div class="col-md-4">
-			<%= image_tag("dollar.png", :size => "360x200")%>
-			<div class="well text-center">
-				<%= "Price Estimate:" %><%= @ride.estimate %> <%="-" %>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<%= image_tag(@image.gsub!("ms.jpg","l.jpg"), :size => "360x200") %>
-			<div class="well text-center">
-				<%= image_tag(@rating ) %>
-				<%= @address %>
-			</div>
-		</div>
+</div>
 	</div>
-</div>
-
-<% end %>
 
 </div>
-</div>
+
 

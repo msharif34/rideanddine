@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rides/index'
+
   root 'main#index'
   get 'signup' => 'users#new'
 
@@ -7,6 +9,10 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'location' => 'location#index'
 
+  get 'rides' => 'users#rides'
+  post 'rides' => 'users#rides'
+
+  get 'index2' => 'main#index2'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
