@@ -1,9 +1,21 @@
 <h1>HOME</h1>
 <div class="row">
-		</div>
-		<div class="row">
-			<div class="center jumbotron">
-				<h1>Ride n Dine</h1>
-				<%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
-			</div>
 </div>
+<div class="row">
+	<div class="center jumbotron">
+		<h1>Ride n Dine</h1>
+ 		<%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-primary" %>
+		<%= link_to "Sign in", login_path, class: "btn btn-lg btn-primary" %> 
+
+	</div>
+
+</div>
+<div class="row">
+	<div class="image">
+		
+	</div>
+</div>
+<br>
+<%= include_gon %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+

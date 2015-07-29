@@ -28,6 +28,19 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
 
+gem 'uber-ruby', require: 'uber'
+
+gem 'rest-client'
+
+gem 'yelp', require: 'yelp'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'foreman'
+gem 'geocoder'
+gem 'nifty-generators', :group => :development
+gem 'google_places'
+gem 'gon'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -45,3 +58,5 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'mocha', group: :test
