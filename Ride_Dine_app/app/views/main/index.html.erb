@@ -1,70 +1,47 @@
-<h1>HOME</h1>
+<%= include_gon %>
 <div class="row">
-</div>
-<div class="row">
-	<div class="center jumbotron">
-	<div class="text-center">
-		<h1>Ride n Dine</h1>
-		<% if logged_in? %>
-		<%= link_to "Profile", current_user, class: "btn btn-lg btn-primary" %>
-		<% else %>
- 		<%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-primary" %>
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		Log in
-		</button>
-		<% end %>
+	<div class="headerWrap jumbotron ">
+		<div class="text-center">
+			<h1 class="animated fadeInDown main-text">The cheapest ride, to your favorite restaurants</h1>
+			<% if logged_in? %>
+			<%= link_to "Profile", current_user, class: "btn btn-lg btn-primary" %>
+			<%= link_to "Log out", logout_path, method: "delete", class: "btn btn-lg btn-primary" %>
+			<%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-primary scroll" %>
+			<button type="button" class="btn btn-lg btn-primary scroll"> <%= link_to "Log out", logout_path, method: "delete" %> </button> 
+			<% else %>
+
+			<div class="learn-btn animated fadeInUp first-button">Learn more <i class="fa fa-arrow-down"></i></div>
+			<%= link_to "Log in", login_path, class: 'learn-btn animated fadeInUp' %>
+			<% end %>
 		</div>
 	</div>
-
 </div>
-<div class="row">
-	<div class="image">
-		
-	</div>
-</div>
-<br>
-<%= include_gon %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<section class="features-intro">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 nopadding features-intro-img">
+						<div class="features-bg">
+							<div class="texture-overlay"></div>
+							<div class="features-img wp1">
+								<img src="img/html5-logo.png" alt="HTML5 Logo">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 nopadding">
+						<div class="features-slider">
 
-<% if !logged_in? %>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-			</div>
-			<h1>Log in</h1>
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<%= form_for(:session, url: login_path) do |f| %>
-
-					<%= f.label :email %>
-					<%= f.email_field :email, class: 'form-control' %>
-
-					<%= f.label :password %>
-					<%= f.password_field :password, class: 'form-control' %>
-
-					<%= f.submit "Log in", class: "btn btn-primary" %>
-					<% end %>
-
-					<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary">Save changes</button>
-		</div>
-	</div>
-</div>
-</div>
-<% end %>
-<p><button onclick="geoFindMe()">Show my location</button></p>
-<div id="out"></div>
-<%= include_gon %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-
+		</section>
+<section class="video-2" id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h1><%= link_to "Try it", new_user_path, class: 'learn-btn animated fadeInUp' %>
+					</h1>
+					</div>
+				</div>
+			</div>
+		</section>

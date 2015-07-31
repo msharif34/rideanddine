@@ -1,3 +1,4 @@
+
 <div class="container">
 	<div class="row">
 		<aside class="col-md-4">
@@ -8,19 +9,31 @@
 				</h1>
 			</section>
 		</aside>
-	<div class="row">
-		<div class="col-md-12">
-			<% if @past_searches %>
-			<% @past_searches.each do |search| %>
-			<%= image_tag(search.image.gsub!("ms.jpg","l.jpg"), :size => "200x200") %>
-				<%= image_tag(search.rating ) %>
-				<%= search.address %>
-				<% end %>
-			<% end %>
-		</div>
-</div>
+		<div class="col-md-8">
+                <h1 class="page-header">Recent Ride and Dines (4)</h1>
+	            <% if @past_searches %>
+		            <% @recent_searches.each do |search| %>
+			            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+			                <a class="thumbnail" href="#">
+			                    <%= image_tag(search.image.gsub!("ms.jpg","l.jpg"), :size => "100x100") %>
+			                </a>
+			                <div><%= image_tag(search.rating ) %></div>
+							<div class="address"><%= search.address %></div>
+							<div class="address">Ride: <%= search.ride_estimate %></div>
+			            </div>
+		            <% end %>
+	            <% end %>
+            </div>
 	</div>
-
 </div>
+<div class="container">
+	<div class="row">
+		<div class="new-ride text-right">
+			<%= link_to "New Ride n Dine", rides_path, class: 'learn-btn-2 animated fadeInUp' %>
+		</div>
+	</div>
+</div>
+
+
 
 

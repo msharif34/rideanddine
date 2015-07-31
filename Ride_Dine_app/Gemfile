@@ -42,6 +42,7 @@ gem 'nifty-generators', :group => :development
 gem 'google_places'
 gem 'gon'
 gem 'bootstrap-modal-rails'
+gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
 # gem 'unicorn'
 
