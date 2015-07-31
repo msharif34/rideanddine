@@ -5,7 +5,7 @@ $(function (){
 		$(".first-button").click(function(e) {
 			e.preventDefault();
 	    $('html, body').animate({
-	        scrollTop: $(".features-intro").offset().top
+	        scrollTop: $(".texture-overlay").offset().top
 	    }, 2000);
 	});
 

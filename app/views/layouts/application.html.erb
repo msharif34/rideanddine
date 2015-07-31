@@ -56,7 +56,7 @@
                 
                 <% else %>
                 <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to current_user.name %></li>
+                <li><%= link_to current_user.name, current_user %></li>
                   <li><%= link_to "Log out", logout_path, method: "delete" %></li>
                 </ul>
               </div>
@@ -70,8 +70,57 @@
   </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
 </nav>
-<%= yield %>
 <%= include_gon %>
-</div>
+<%= yield %>
+<footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3>Ride n'<span> Dine</span></h3>
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">Blog</a>
+          ·
+          <a href="#">Pricing</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Ride n' Dine &copy; 2015</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>21 Revolution Street</span> Paris, France</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>207-344-5571</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:msharif34@yahoo.com">msharif34@yahoo.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+          Ride n' Dine is a revolutionary service that combines rideshare technology with great restaurants in your area.  Try it today for FREE!
+        </p>
+      </div>
+
+    </footer>
 </body>
-</html>

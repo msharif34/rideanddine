@@ -1,40 +1,31 @@
 <%= include_gon %>
-<div class="row">
+<div class="row-2">
 	<div class="headerWrap jumbotron ">
 		<div class="text-center">
-			<h1 class="animated fadeInDown main-text">The cheapest ride, to your favorite restaurants</h1>
+			<h1 class="animated fadeInDown main-text" style="background-color: rgba(115, 208, 218, 0.64); color: white;">The cheapest ride, to your favorite restaurants</h1>
 			<% if logged_in? %>
-			<%= link_to "Profile", current_user, class: "btn btn-lg btn-primary" %>
-			<%= link_to "Log out", logout_path, method: "delete", class: "btn btn-lg btn-primary" %>
-			<%= link_to "Sign up", new_user_path, class: "btn btn-lg btn-primary scroll" %>
-			<button type="button" class="btn btn-lg btn-primary scroll"> <%= link_to "Log out", logout_path, method: "delete" %> </button> 
+			<%= link_to "New Ride n' Dine", rides_path, class: 'learn-btn animated fadeInUp' %> 
+			<%= link_to "Profile", current_user, class: 'learn-btn animated fadeInUp' %> 
 			<% else %>
 
-			<div class="learn-btn animated fadeInUp first-button">Learn more <i class="fa fa-arrow-down"></i></div>
+			<a href="#"><div class="learn-btn animated fadeInUp first-button">Learn more</div></a>
 			<%= link_to "Log in", login_path, class: 'learn-btn animated fadeInUp' %>
 			<% end %>
 		</div>
 	</div>
 </div>
-	<section class="features-intro">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-6 nopadding features-intro-img">
-						<div class="features-bg">
-							<div class="texture-overlay"></div>
-							<div class="features-img wp1">
-								<img src="img/html5-logo.png" alt="HTML5 Logo">
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 nopadding">
-						<div class="features-slider">
 
-						</div>
-					</div>
-				</div>
+
+	<div class="row">
+		<div class="features-bg">
+			<div class="texture-overlay">
+				<div class="col-md-4 hello" style="color: blue;">
+				</div>	
 			</div>
-		</section>
+		</div>
+	</div>
+
+
 <section class="video-2" id="about">
 			<div class="container">
 				<div class="row">
@@ -44,4 +35,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+</section>
+
+
+
