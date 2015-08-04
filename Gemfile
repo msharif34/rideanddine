@@ -43,6 +43,8 @@ gem 'google_places'
 gem 'gon'
 gem 'bootstrap-modal-rails'
 gem 'rails_12factor', group: :production
+gem 'omniauth'
+gem 'omniauth-facebook'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

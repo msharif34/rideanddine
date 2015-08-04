@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   post 'rides' => 'users#rides'
 
   get 'index2' => 'main#index2'
+
+  get 'auth/logout' => 'auth#logout'
+  get 'auth/failure' => 'auth#failure'
+  get 'auth/:provider/callback' => 'auth#callback'
+
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -29,10 +29,16 @@
 <section class="video-2" id="about">
 			<div class="container">
 				<div class="row">
+				<% if logged_in? %>
 					<div class="col-md-12 text-center">
+					<%= link_to "Profile", current_user, class: 'learn-btn animated fadeInUp' %>
+						<% else %>
+						<div class="col-md-12 text-center">
 						<h1><%= link_to "Try it", new_user_path, class: 'learn-btn animated fadeInUp' %>
+
 					</h1>
 					</div>
+					<% end %>
 				</div>
 			</div>
 </section>

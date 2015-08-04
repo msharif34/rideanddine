@@ -1,3 +1,4 @@
+<%= include_gon %>
 <% if !@ride %>
 <div class="container outer">
 	<div class="row middle">
@@ -7,13 +8,16 @@
             <div id="custom-search-input">
                 <div class="input-group animated fadeInUp ">
                 <div class="col-md-5">
-           <%= f.text_field(:address, label: 'Current Location', class: 'form-control input-lg') %>
 
+           <%= f.text_field(:address, label: 'Current Location', class: 'form-control input-lg', :id => 'searchTextField') %>
                     </div>
                     <div class="col-md-5">
-                    <%= f.text_field(:destination, label: 'Destination', class: 'form-control input-lg') %>
+                    <%= f.text_field(:destination, label: 'Destination', class: 'form-control input-lg', :id => 'searchTextField2') %>
                     </div>
                     <div class="col-md-1">
+                    <div class="row">
+                    	
+                    </div>
                     <span class="input-group-btn">
                     <%= f.submit('Search', class: 'btn btn-info btn-lg  search-button') %>
                     </span>
@@ -39,7 +43,7 @@
 		<div class="animated fadeInUp col-md-4 uber">
 			<%= image_tag("dollar.png", :size => "284x200")%>
 			<div class="well text-center">
-				<%= "Price Estimate:" %><%= @ride.estimate %> <%="-" %>
+				<%= "Price Estimate:" %><%= @ride.estimate %> 
 			</div>
 		</div>
 		<div class="animated fadeInUp col-md-4 uber">
@@ -58,8 +62,19 @@
 		</div>
 	</div>
 </div>
+<div class="container">
+	<div class="row">
+		<div class="text-center">
+			<div class="learn-btn-2 animated fadeInUp">
+			<h3>Total Ride and Dine: $<%= @ride_dine + 25 %> * </h3>
+			<h5>*Based on national average meal price. </h5>
+			</div>
+		</div>
+	</div>
+</div>
 <% end %>
-<%= include_gon %>
+
+
 
 
 

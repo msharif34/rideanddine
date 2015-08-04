@@ -9,10 +9,21 @@ $(function (){
 	    }, 2000);
 	});
 
+
+
+
+
 	$('.search-button').on('click', function(e){
 
-		
-		console.log('clicked');
-		$('.input-group').fadeOut();
+		if ($('#address').val() || $('#destination').val()  === ''){
+			e.preventDefault();
+			alert('no input')
+		}
+		else{
+			$('.input-group').fadeOut();
+		}
 	})
 })
+
+
+
