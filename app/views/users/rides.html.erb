@@ -1,4 +1,11 @@
 <%= include_gon %>
+
+<% flash.each do |key, value| %>
+<div class="alert alert-<%= key %>">
+	<%= value %>
+</div>
+<% end %>
+
 <% if !@ride %>
 <div class="container outer">
 	<div class="row middle">
@@ -57,21 +64,22 @@
 <div class="container">
 	<div class="row">
 		<div class="text-center">
-			<%= link_to "Recent Ride n Dines", current_user, class: 'learn-btn-2 animated fadeInUp' %>
-			<%= link_to "Search Again", rides_path, class: 'learn-btn-2 animated fadeInUp' %>
+			<div class="learn-btn-2 animated fadeInUp">
+			<h3>Total Ride and Dine: $<%= @ride_dine + 25 %> * </h3>
+			<h5>*Based on average meal price.</h5>
+			</div>
 		</div>
 	</div>
 </div>
 <div class="container">
 	<div class="row">
 		<div class="text-center">
-			<div class="learn-btn-2 animated fadeInUp">
-			<h3>Total Ride and Dine: $<%= @ride_dine + 25 %> * </h3>
-			<h5>*Based on national average meal price. </h5>
-			</div>
+			<%= link_to "Recent Ride n Dines", current_user, class: 'learn-btn-2 animated fadeInUp' %>
+			<%= link_to "Search Again", rides_path, class: 'learn-btn-2 animated fadeInUp' %>
 		</div>
 	</div>
 </div>
+
 <% end %>
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729181728) do
+ActiveRecord::Schema.define(version: 20150805010514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 20150729181728) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.string   "provider_id"
+    t.string   "provider"
+    t.string   "provider_hash"
   end
 
   add_foreign_key "restaurants", "users"

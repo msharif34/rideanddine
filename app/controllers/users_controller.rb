@@ -9,9 +9,6 @@ class UsersController < ApplicationController
 	    @past_searches = Restaurant.where(:user_id => @user.id)
 	    @recent_searches = @past_searches.last(4)
 
-
-
-
 	end
 
 	def rides
@@ -60,19 +57,22 @@ class UsersController < ApplicationController
 	     	 @address = @yelp.businesses[0].location.display_address[2]
 
 	     	 #Calculate estimates based on the user location and destination
-	     	 @ride = client.price_estimations(start_latitude: start_lat, 
-	     	 	start_longitude: start_long, end_latitude: end_lat, 
-	     	 	end_longitude: end_long).first
-	     	 @surge = @ride.surge_multiplier.to_i
+	     	 begin
+		     	 @ride = client.price_estimations(start_latitude: start_lat, 
+		     	 	start_longitude: start_long, end_latitude: end_lat, 
+		     	 	end_longitude: end_long).first
+		     	 @surge = @ride.surge_multiplier.to_i
 
+		     	 @closest_driver = client.time_estimations(start_latitude: 
+		     	 	start_lat, start_longitude: start_long).first.estimate
 
-	     	 @closest_driver = client.time_estimations(start_latitude: 
-	     	 	start_lat, start_longitude: start_long).first.estimate
-
-	     	 @ride_dine = (@ride.low_estimate + @ride.high_estimate) / 2
-	     	 #When user searches, it saves their ride and dine in their user profiles
-	     	 Restaurant.create(name: @name, address: @address, image: @image, 
-	     	 rating: @rating, ride_estimate: @ride.estimate, user_id: @current_id)
+		     	 @ride_dine = ((@ride.low_estimate + @ride.high_estimate) / 2 )
+		     	 #When user searches, it saves their ride and dine in their user profiles
+		     	 Restaurant.create(name: @name, address: @address, image: @image, 
+		     	 rating: @rating, ride_estimate: @ride.estimate, user_id: @current_id)
+		     rescue
+		     	flash.now[:danger] = 'Location invalid (cannot exceed 100 mile radius).  Please Try again.'
+		     end
 	end
 end
 
