@@ -17,7 +17,7 @@ def callback
     #send them home
      redirect_to user
   end
-
+v
   def logout
     session[:user_id] = nil
     redirect_to root_path
